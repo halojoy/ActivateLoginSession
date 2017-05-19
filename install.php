@@ -77,7 +77,7 @@ if(isset($_POST['dbfile'])) {
 	$after = str_replace(array('yourgmailaccount','yourgmailpass'), array($gmail, $gpass), $before);
 	file_put_contents('includes/gmailsend.php', $after);
 	
-	require ('includes/class.Database.php');
+	require('includes/class.Database.php');
 	$db = new Database();
 	// create table users
 	$db->createTableUsers();
