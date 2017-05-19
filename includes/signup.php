@@ -3,6 +3,7 @@
 if(isset($_POST['username'])) {
 	extract($_POST);
 	$username  = htmlspecialchars(trim($username));
+	$username  = str_replace('  ', ' ', $username);
 	$userpass1 = trim($userpass1);
 	$userpass2 = trim($userpass2);
 	$useremail = strtolower(trim($useremail));

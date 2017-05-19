@@ -138,6 +138,7 @@ if(isset($_POST['dbfile'])) {
 // insert admin user
 extract($_POST);
 $adminname  = trim($adminname); //4-20
+$adminname  = str_replace('  ', ' ', $adminname);
 $adminpass1 = trim($adminpass1);//6-12
 $adminpass2 = trim($adminpass2);//6-12
 $adminemail = trim($adminemail);//9-
@@ -175,8 +176,9 @@ unlink('install.php');
 ?>
 Your install is now completed.<br />
 The install.php has been deleted.<br />
-You may go to the index page and login:
-<a href='index.php'>Index</a>
+You may go to the index page and login:<br />
+Your Admin name is: <b><?php echo $adminname; ?></b><br />
+<a href='index.php'>To Index Page</a>
 <?php
 	break;
 }

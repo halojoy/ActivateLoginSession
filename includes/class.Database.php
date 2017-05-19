@@ -57,7 +57,7 @@ class Database extends PDO
 
 	public function getActivate($ucode)
 	{
-		$sth = $this->prepare("SELECT id FROM users WHERE utype='activate' AND ucode=? LIMIT 1");
+		$sth = $this->prepare("SELECT * FROM users WHERE utype='activate' AND ucode=? LIMIT 1");
 		$sth->execute(array($ucode));
 		return $sth->fetch();
 	}

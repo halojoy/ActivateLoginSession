@@ -17,7 +17,8 @@ else {
 		$db->setActivate($match->id);
 		$message = "			Great!<br />\n".
 				   "			Your account is now activated.<br />\n".
-				   "			You can go to index page and log in.<br />";
+				   "			You can go to index page and log in.<br />\n".
+				   "			Your User Name is: <b>".$match->uname."</b>";
 	}
 }
 include('includes/msghead.php');
