@@ -151,6 +151,7 @@ if(strlen($adminpass1) < 6) $error[] = '			- Password too short';
 if($adminpass1 != $adminpass2) $error[] = '			- Passwords don\'t match';
 if (!filter_var($adminemail, FILTER_VALIDATE_EMAIL)) $error[] = '			- Invalid email format';
 if(preg_match('/@gmail/', $adminemail)) $adminemail = preg_replace('/\.(?=.*@)/', '', $adminemail);
+
 // echo errors
 if(!empty($error)) {
 	$message = '';
@@ -167,6 +168,7 @@ if(!empty($error)) {
 <?php
 	include('includes/msgfoot.php');
 }
+
 //insert admin
 require ('includes/class.Database.php');
 $db = new Database();
