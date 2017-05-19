@@ -88,10 +88,10 @@ if(isset($_POST['dbfile'])) {
 <head>
 	<title>Install Step 2</title>
 	<style type="text/css">
-		fieldset{margin-left:20em; width:32em}
+		fieldset{margin-left:20em; width:34em}
 		#headline{text-align:center}
 		#headtext{font-size:150%; font-weight:bold}
-		.adj{width:8em; text-align:right}
+		.adj{width:9em; text-align:right}
 		input{border:1px solid black}
 	</style>
 </head>
