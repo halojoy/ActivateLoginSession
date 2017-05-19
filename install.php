@@ -146,7 +146,7 @@ $adminemail = trim($adminemail);//9-
 $error = array();
 if(strlen($adminname) < 4) $error[] = '			- Admin Name too short';
 if(preg_match('/^[^a-z]/i', $adminname)) $error[] = '			- Admin Name must start with A-Z, a-z';
-if(!preg_match('/^[a-z0-9-_ ]+$/i', $adminname)) $error[] = '			- You have forbidden char in Admin Name';
+if(!preg_match('/^[a-z0-9-_ ]+$/i', $adminname)) $error[] = '			- These chars in Admin Name: A-Z _- space';
 if(strlen($adminpass1) < 6) $error[] = '			- Password too short';
 if($adminpass1 != $adminpass2) $error[] = '			- Passwords don\'t match';
 if (!filter_var($adminemail, FILTER_VALIDATE_EMAIL)) $error[] = '			- Invalid email format';
@@ -175,13 +175,15 @@ $db = new Database();
 $db->insertAdmin($adminname, sha1($adminpass1), $adminemail);
 $db = null;
 unlink('install.php');
+include('includes/msghead.php');
 ?>
 Your install is now completed.<br />
 The install.php has been deleted.<br />
 You may go to the index page and login:<br />
 Your Admin name is: <b><?php echo $adminname; ?></b><br />
-<a href='index.php'>To Index Page</a>
 <?php
+include('includes/msgfoot.php');
+
 	break;
 }
 
