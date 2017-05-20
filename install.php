@@ -177,10 +177,10 @@ $db = null;
 unlink('install.php');
 include('includes/msghead.php');
 ?>
-Your install is now completed.<br />
-The install.php has been deleted.<br />
-You may go to the index page and login:<br />
-Your Admin name is: <b><?php echo $adminname; ?></b><br />
+			Your install is now completed.<br />
+			The install.php has been deleted.<br />
+			You may go to the index page and login:<br />
+			Your Admin name is: <b><?php echo $adminname; ?></b><br />
 <?php
 include('includes/msgfoot.php');
 
