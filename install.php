@@ -138,7 +138,7 @@ if(isset($_POST['dbfile'])) {
 // insert admin user
 extract($_POST);
 $adminname  = trim($adminname); //4-20
-$adminname  = str_replace('  ', ' ', $adminname);
+$adminname  = str_replace(array('  ','__','--'), array(' ','_','-'), $adminname);
 $adminpass1 = trim($adminpass1);//6-12
 $adminpass2 = trim($adminpass2);//6-12
 $adminemail = trim($adminemail);//9-
@@ -146,7 +146,7 @@ $adminemail = trim($adminemail);//9-
 $error = array();
 if(strlen($adminname) < 4) $error[] = '			- Admin Name too short';
 if(preg_match('/^[^a-z]/i', $adminname)) $error[] = '			- Admin Name must start with A-Z, a-z';
-if(!preg_match('/^[a-z0-9-_ ]+$/i', $adminname)) $error[] = '			- These chars in Admin Name: A-Z _- space';
+if(!preg_match('/^[a-z0-9-_ ]+$/i', $adminname)) $error[] = '			- These chars in Admin Name: A-Z a-z _- space';
 if(strlen($adminpass1) < 6) $error[] = '			- Password too short';
 if($adminpass1 != $adminpass2) $error[] = '			- Passwords don\'t match';
 if (!filter_var($adminemail, FILTER_VALIDATE_EMAIL)) $error[] = '			- Invalid email format';

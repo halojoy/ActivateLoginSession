@@ -3,19 +3,19 @@
 if(isset($_POST['username'])) {
 	extract($_POST);
 	$username  = htmlspecialchars(trim($username));
-	$username  = str_replace('  ', ' ', $username);
+	$username  = str_replace(array('  ','__','--'), array(' ','_','-'), $username);
 	$userpass1 = trim($userpass1);
 	$userpass2 = trim($userpass2);
 	$useremail = strtolower(trim($useremail));
 	
 	// validate input
 	$error = array();
-	if(strlen($username) < 4) $error[] = 'User Name too short';
-	if(preg_match('/^[^a-z]/i', $username)) $error[] = 'User Name must start with A-Z, a-z';
-	if(!preg_match('/^[a-z0-9-_ ]+$/i', $username)) $error[] = 'You have forbidden char in User Name';
-	if(strlen($userpass1) < 6) $error[] = 'Password too short';
-	if($userpass1 != $userpass2) $error[] = 'Passwords don\'t match';
-	if (!filter_var($useremail, FILTER_VALIDATE_EMAIL)) $error[] = 'Invalid email format';
+	if(strlen($username) < 4) $error[] = '			- User Name too short';
+	if(preg_match('/^[^a-z]/i', $username)) $error[] = '			- User Name must start with A-Z, a-z';
+	if(!preg_match('/^[a-z0-9-_ ]+$/i', $username)) $error[] = '			- These chars in User Name: A-Z a-z _- space';
+	if(strlen($userpass1) < 6) $error[] = '			- Password too short';
+	if($userpass1 != $userpass2) $error[] = '			- Passwords don\'t match';
+	if (!filter_var($useremail, FILTER_VALIDATE_EMAIL)) $error[] = '			- Invalid email format';
 	if(preg_match('/@gmail/', $useremail)) $useremail = preg_replace('/\.(?=.*@)/', '', $useremail);
 	// echo errors
 	if(!empty($error)) {
