@@ -1,7 +1,7 @@
 <?php
 
-$gmailaccount  = 'halojoy@gmail.com';
-$gmailpassword = '14shabboy';
+$gmailaccount  = 'yourgmailaccount';
+$gmailpassword = 'yourgmailpass';
 $from   = 'Administrator <'.$gmailaccount.'>';
 $mailto = $useremail;
 

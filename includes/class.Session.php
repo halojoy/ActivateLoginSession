@@ -7,8 +7,8 @@ class Session
 	public $username = '';
 	public $usertype = '';
 	public $lifetime = 3600*24*30; // Cookie for one month
-	private $secret = '66A0CD3B38581144';
-	private $iv     = '64918C57';
+	private $secret = 'privatekey';
+	private $iv     = 'privateiv';
 
 	public function __construct()
 	{

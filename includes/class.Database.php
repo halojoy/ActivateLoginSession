@@ -2,7 +2,7 @@
 
 class Database extends PDO
 {
-	public $dsn = "sqlite:includes/datafile.db3";
+	public $dsn = "sqlite:includes/datafilename.db3";
 
 	public function __construct()
 	{
