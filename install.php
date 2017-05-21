@@ -65,22 +65,32 @@ switch($step) {
 	case '2':
 
 if(isset($_POST['dbfile'])) {
+
 	// create database
 	$dbname = $_POST['dbfile'];
 	$before = file_get_contents('includes/class.Database.php');
 	$after = str_replace('datafilename', $dbname, $before);
 	file_put_contents('includes/class.Database.php', $after);
-	
+	require('includes/class.Database.php');
+	$db = new Database();
+	// create table users
+	$db->createTableUsers();
+
+	// setup activation mailer
 	$gmail = trim($_POST['gmailaccount']);
 	$gpass = $_POST['gmailpass'];
 	$before = file_get_contents('includes/gmailsend.php');
 	$after = str_replace(array('yourgmailaccount','yourgmailpass'), array($gmail, $gpass), $before);
 	file_put_contents('includes/gmailsend.php', $after);
-	
-	require('includes/class.Database.php');
-	$db = new Database();
-	// create table users
-	$db->createTableUsers();
+
+	// setup Cookie encrypt
+	$chars = 'ABCDEF01234567890123456789';
+	$key = substr(str_shuffle($chars), 0, 16);
+	$iv  = substr(str_shuffle($chars), 0, 8);
+	$before = file_get_contents('includes/class.Session.php');
+	$after = str_replace(array('privatekey','privateiv'), array($key, $iv), $before);
+	file_put_contents('includes/class.Session.php', $after);
+
 }
 ?>
 <!DOCTYPE html>

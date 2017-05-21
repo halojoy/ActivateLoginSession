@@ -2,19 +2,22 @@
 
 class Session
 {
-
 	public $logged;
 	public $userid = '';
 	public $username = '';
 	public $usertype = '';
+	public $lifetime = 3600*24*30; // Cookie for one month
+	private $secret = '66A0CD3B38581144';
+	private $iv     = '64918C57';
 
 	public function __construct()
 	{
-		session_start();
-		if (isset($_SESSION['userid'])) {
-			$this->userid   = $_SESSION['userid'];
-			$this->username = $_SESSION['username'];
-			$this->usertype = $_SESSION['usertype'];
+		if (isset($_COOKIE['userdata'])) {
+			$cookiedata = openssl_decrypt($_COOKIE['userdata'], 'blowfish', $this->secret, 0, $this->iv);
+			$userdata = explode('&', $cookiedata);
+			$this->userid   = $userdata[0];
+			$this->username = $userdata[1];
+			$this->usertype = $userdata[2];
 			$this->logged = true;
 		} else {
 			$this->logged = false;
@@ -23,29 +26,29 @@ class Session
 
 	public function Login($user)
 	{
-		$_SESSION['userid']   = $user->id;
-		$_SESSION['username'] = $user->uname;
-		$_SESSION['usertype'] = $user->utype;
+		$ustring = implode('&', array($user->id, $user->uname, $user->utype));
+		$encoded = openssl_encrypt($ustring, 'blowfish', $this->secret, 0, $this->iv);
+		setcookie('userdata', $encoded, time()+$this->lifetime);
+		$this->logged = true;
 	}
 
 	public function Logout()
 	{
-		$_SESSION = array();
-		session_destroy();
+		setcookie('userdata', '', time()-1);
 		$this->logged = false;
-	}
-
-	public function	isAdmin()
-	{
-		if ($this->usertype != 'admin') {
-			header('location:index.php');
-			exit();
-		}
 	}
 
 	public function	isLogged()
 	{
 		if (!$this->logged) {
+			header('location:index.php');
+			exit();
+		}
+	}
+
+	public function	isAdmin()
+	{
+		if ($this->usertype != 'admin') {
 			header('location:index.php');
 			exit();
 		}
