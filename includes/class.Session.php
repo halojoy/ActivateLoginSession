@@ -34,7 +34,7 @@ class Session
 
 	public function Logout()
 	{
-		setcookie('userdata', '', time()-1);
+		setcookie('userdata', '', time()-10);
 		$this->logged = false;
 	}
 
