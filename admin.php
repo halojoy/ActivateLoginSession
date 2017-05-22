@@ -28,7 +28,7 @@ if (isset($_POST['del_id']))
 			.headline  	{font-size:120%; font-weight:bold}
 			#footer    	{text-align:center; background:#f0f0f0;
 						 font-size:90%; font-style:italic}
-			table		{border-collapse:collapse; margin-bottom:20px; background:#ffffff}
+			table		{border-collapse:collapse; margin-bottom:20px; background:#d7d7ff}
 			td			{border:1px solid black; padding:0px 3px 0px 3px}
 			form		{margin:0px 5px 0px 5px}
 		</style>
