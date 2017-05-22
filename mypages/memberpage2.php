@@ -1,3 +1,4 @@
+<?php $sess->isLogged(); ?>
 <!DOCTYPE html>
 <html>
 	<head>
