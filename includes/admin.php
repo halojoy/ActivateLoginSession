@@ -9,6 +9,8 @@ if (isset($_POST['mem_id']))
 if (isset($_POST['del_id']))
 	$db->deleteUser($_POST['del_id']);
 
+$users = $db->getUsers();
+$db = null;
 include('themes/'.$theme.'/templates/admin.template.php');
 
 ?>

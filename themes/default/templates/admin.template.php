@@ -14,7 +14,6 @@
 			<p><table>
 <?php
 	// Admin Users
-	$users = $db->getUsers();
 	foreach ($users as $user) {
 		echo '				<tr>'."\n";
 		echo '				<td>' . $user->uname . '</td>' . "\n";

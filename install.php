@@ -23,6 +23,7 @@ switch($step) {
 			$db = new Database();
 			// create table users
 			$db->createTableUsers();
+			$db = null;
 
 			// setup activation mailer
 			$gmail = trim($_POST['gmailaccount']);

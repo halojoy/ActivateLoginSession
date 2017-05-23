@@ -55,6 +55,7 @@ if(isset($_POST['username'])) {
 					'Please click the link here below!<br /><br />'.
 					'<a href="'.$host.'?act=activation&ucode='.$usercode.'">Activate your account</a>';
 			require('includes/gmailsend.php');
+			$db = null;
 		}
 	}
 	include('themes/'.$theme.'/templates/message.head.php');

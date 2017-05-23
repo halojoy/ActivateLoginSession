@@ -15,6 +15,7 @@ if(isset($_POST['username'])) {
 	}
 	$error = '';
 	$user = $db->nameCheck($username);
+	$db = null;
 	if (!$user) {
 		$error = '			Not a valid log in.<br />
 			You should check your username and password.<br />';

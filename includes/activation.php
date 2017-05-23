@@ -20,6 +20,7 @@ else {
 				   "			You can go to index page and log in.<br />\n".
 				   "			Your User Name is: <b>".$match->uname."</b>";
 	}
+	$db = null;
 }
 include('themes/'.$theme.'/templates/message.head.php');
 echo $message;
