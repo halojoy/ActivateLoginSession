@@ -10,14 +10,22 @@ class Session
 	private $secret = 'privatekey';
 	private $iv     = 'privateiv';
 
-	public function __construct()
+	public function __construct($db)
 	{
 		if (isset($_COOKIE['userdata'])) {
 			$cookiedata = openssl_decrypt($_COOKIE['userdata'], 'blowfish', $this->secret, 0, $this->iv);
 			$userdata = explode('&', $cookiedata);
+			if(count($userdata) != 3) {
+				$this->logged = false;
+				return;
+			}
 			$this->userid   = $userdata[0];
 			$this->username = $userdata[1];
 			$this->usertype = $userdata[2];
+			if(!$db->nameCheck($this->username)){
+				$this->logged = false;
+				return;
+			}
 			$this->logged = true;
 		} else {
 			$this->logged = false;

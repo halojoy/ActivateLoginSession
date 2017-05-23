@@ -1,8 +1,5 @@
 <?php
 
-require('includes/class.Session.php');
-$sess = new Session();
-
 $databasefile = false;
 foreach (scandir('includes') as $filename) {
 	if (preg_match("/\.db3$/", $filename))
@@ -14,6 +11,9 @@ if(!$databasefile) {
 }
 require('includes/class.Database.php');
 $db = new Database();
+
+require('includes/class.Session.php');
+$sess = new Session($db);
 
 if(!$sess->logged)
 	$loginmenu = '<a href="index.php?act=login">Login</a>'.
