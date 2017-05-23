@@ -31,7 +31,7 @@ switch ($action) {
 		<meta charset="utf-8">
 		<title>Index Page</title>
 		<style>
-			body		{width:775px; margin-left:200px; border:1px solid black}
+			body		{width:1000px; margin-left:200px; border:1px solid black}
 			a:link,a:visited {color:blue; text-decoration:none}
 			a:hover 	{color:red; text-decoration:underline}
 			#header    	{padding-left:8px; background:#f0f0f0}
