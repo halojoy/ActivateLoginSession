@@ -5,7 +5,7 @@ foreach (scandir('includes') as $filename) {
 	if (preg_match("/\.db3$/", $filename))
 		$databasefile = $filename;
 }
-if(!$databasefile) {
+if (!$databasefile) {
 	header('location:install.php');
 	exit();
 }
@@ -15,7 +15,7 @@ $db = new Database();
 require('includes/class.Session.php');
 $sess = new Session($db);
 
-if(!$sess->logged)
+if (!$sess->logged)
 	$loginmenu = '<a href="index.php?act=login">Login</a>'.
 			'&nbsp;&nbsp;&nbsp;<a href="index.php?act=signup">SignUp</a>';
 else {
