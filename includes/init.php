@@ -9,10 +9,10 @@ if (!$databasefile) {
 	header('location:install.php');
 	exit();
 }
-require('includes/class.Database.php');
+require ('includes/class.Database.php');
 $db = new Database();
 
-require('includes/class.Session.php');
+require ('includes/class.Session.php');
 $sess = new Session($db);
 
 if (!$sess->logged)
