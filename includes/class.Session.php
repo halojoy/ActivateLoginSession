@@ -13,16 +13,20 @@ class Session
 	public function __construct($db)
 	{
 		if (isset($_COOKIE['userdata'])) {
+			if (empty($COOKIE['userdata'])) {
+				$this->Logout();
+				return;
+			}
 			$cookiedata = openssl_decrypt($_COOKIE['userdata'], 'blowfish', $this->secret, 0, $this->iv);
 			$userdata = explode('&', $cookiedata);
-			if(count($userdata) != 3) {
+			if (count($userdata) != 3) {
 				$this->Logout();
 				return;
 			}
 			$this->userid   = $userdata[0];
 			$this->username = $userdata[1];
 			$this->usertype = $userdata[2];
-			if(!$db->nameCheck($this->username)){
+			if (!$db->nameCheck($this->username)) {
 				$this->Logout();
 				return;
 			}
