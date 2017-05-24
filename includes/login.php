@@ -1,11 +1,11 @@
 <?php
 
-if($sess->logged) {
+if ($sess->logged) {
 	header('location:index.php');
 	exit();
 }
 
-if(isset($_POST['username'])) {
+if (isset($_POST['username'])) {
 	$username = htmlspecialchars(trim($_POST['username']));
 	$password = trim($_POST['password']);
 	$passhash = sha1($password);
@@ -26,10 +26,10 @@ if(isset($_POST['username'])) {
 		$error = '			You can not log in now.<br />
 			Please activate your account.<br />';
 	}
-	if(!empty($error)) {
-		include('themes/'.$theme.'/templates/message.head.php');
+	if (!empty($error)) {
+		include ('themes/'.$theme.'/templates/message.head.php');
 		echo $error;
-		include('themes/'.$theme.'/templates/message.foot.php');
+		include ('themes/'.$theme.'/templates/message.foot.php');
 	}
 	// Everything is good!
 	$sess->Login($user);
@@ -37,6 +37,6 @@ if(isset($_POST['username'])) {
 	exit();
 }
 
-include('themes/'.$theme.'/templates/login.template.php');
+include ('themes/'.$theme.'/templates/login.template.php');
 
 ?>

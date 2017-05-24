@@ -7,11 +7,11 @@ if (!isset($_GET['ucode'])) {
 
 //contents
 $usercode = $_GET['ucode'];
-if(strlen($usercode) != 40)
+if (strlen($usercode) != 40)
 	$message = '			Activation code is not valid.<br />';
 else {
 	$match = $db->getActivate($usercode);
-	if(!$match)
+	if (!$match)
 		$message = '			Activation code does not match.<br />';
 	else {
 		$db->setActivate($match->id);
@@ -22,8 +22,8 @@ else {
 	}
 	$db = null;
 }
-include('themes/'.$theme.'/templates/message.head.php');
+include ('themes/'.$theme.'/templates/message.head.php');
 echo $message;
-include('themes/'.$theme.'/templates/message.foot.php');
+include ('themes/'.$theme.'/templates/message.foot.php');
 
 ?>

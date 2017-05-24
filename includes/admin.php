@@ -11,6 +11,6 @@ if (isset($_POST['del_id']))
 
 $users = $db->getUsers();
 $db = null;
-include('themes/'.$theme.'/templates/admin.template.php');
+include ('themes/'.$theme.'/templates/admin.template.php');
 
 ?>
