@@ -13,7 +13,7 @@ class Session
 	public function __construct($db)
 	{
 		if (isset($_COOKIE['userdata'])) {
-			if (empty($COOKIE['userdata'])) {
+			if (empty($_COOKIE['userdata'])) {
 				$this->Logout();
 				return;
 			}
