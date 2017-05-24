@@ -27,7 +27,6 @@ if (isset($_POST['username'])) {
 			<br />
 			Go back and try again!<br />
 			<form action="<?php echo htmlspecialchars($_SERVER['REQUEST_URI'], ENT_QUOTES); ?>" method="POST">
-				<input type="hidden" name="step" value="2">
 				<input type="submit" value="Try Again">&nbsp;&nbsp;&nbsp;<a href='index.php'>Cancel</a>
 			</form>
 <?php
