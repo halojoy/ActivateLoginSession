@@ -21,10 +21,10 @@
 <?php }else{ ?>
 			<p><img src="images/chimpanzee-face.jpg" title="Chimpanzee" alt="Chimpanzee" border="1"></p>
 <?php } ?>
-			<p>This is a part of '<b>ActivateLogin</b>' which is a software<br />
+			<p>This is a part of '<b>ActivateLoginSession</b>' which is a software<br />
 			designed by 'halojoy.'<br />
 			You can use it for free and get the source code at:
-			<a href="https://github.com/halojoy/ActivateLogin" target="_blank">Github.com</a></p>
+			<a href="https://github.com/halojoy/ActivateLoginSession" target="_blank">Github.com</a></p>
 		</div>
 		
 <?php include('themes/default/templates/footer.php'); ?>
