@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+	<meta charset="UTF-8">
 	<title>Install Step 1</title>
 	<link rel="stylesheet" type="text/css" href="themes/default/style/install1.css">
 </head>

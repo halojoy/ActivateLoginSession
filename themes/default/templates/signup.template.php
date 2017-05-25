@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+	<meta charset="UTF-8">
 	<title>Sign Up</title>
 	<link rel="stylesheet" type="text/css" href="themes/default/style/signup.css">
 </head>
