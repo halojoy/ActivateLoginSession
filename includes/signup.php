@@ -32,6 +32,7 @@ if (isset($_POST['username'])) {
 <?php
 		include ('themes/'.$theme.'/templates/message.foot.php');
 	}
+
 	// check username and email in database
 	$user = $db->nameCheck($username);
 	if ($user) {
@@ -57,6 +58,7 @@ if (isset($_POST['username'])) {
 		}
 	}
 	$db = null;
+
 	include ('themes/'.$theme.'/templates/message.head.php');
 	echo $message;
 	include ('themes/'.$theme.'/templates/message.foot.php');

@@ -13,6 +13,7 @@ if (isset($_POST['username'])) {
 		header('location:index.php');
 		exit();
 	}
+
 	$error = '';
 	$user = $db->nameCheck($username);
 	$db = null;
@@ -31,6 +32,7 @@ if (isset($_POST['username'])) {
 		echo $error;
 		include ('themes/'.$theme.'/templates/message.foot.php');
 	}
+
 	// Everything is good!
 	$sess->Login($user);
 	header('location:index.php');
