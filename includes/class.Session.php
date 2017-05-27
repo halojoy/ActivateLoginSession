@@ -18,7 +18,7 @@ class Session
 				return;
 			}
 			$cookiedata = openssl_decrypt($_COOKIE['userdata'], 'blowfish', $this->secret, 0, $this->iv);
-			$userdata = explode('&', $cookiedata);
+			$userdata = explode('~', $cookiedata);
 			if (count($userdata) != 3) {
 				$this->Logout();
 				return;
@@ -38,7 +38,7 @@ class Session
 
 	public function Login($user)
 	{
-		$ustring = implode('&', array($user->id, $user->uname, $user->utype));
+		$ustring = implode('~', array($user->id, $user->uname, $user->utype));
 		$encoded = openssl_encrypt($ustring, 'blowfish', $this->secret, 0, $this->iv);
 		setcookie('userdata', $encoded, time()+$this->lifetime);
 		$this->logged = true;
