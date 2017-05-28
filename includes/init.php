@@ -26,4 +26,4 @@ else {
 
 // CONFIG
 $theme = 'default';
-define('SENDMAIL', false); // true or 'false' if no email activation
+define('SENDMAIL', true); // true or 'false' if no email activation

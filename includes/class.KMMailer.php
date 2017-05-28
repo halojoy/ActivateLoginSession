@@ -94,7 +94,7 @@ class KMMailer {
 	public $secure;    /* can be tls, ssl, or none */
 
 	public $charset = "\"utf-8\""; /* included double quotes on purpose */
-	public $contentType = "multipart/mixed";  /* can be set to: text/plain, text/html, multipart/mixed */
+	public $contentType = "text/html";  /* can be set to: text/plain, text/html, multipart/mixed */
 	public $transferEncodeing = "8-bit"; /* or 8-bit  */
 	public $altBody = "";
 	public $isLogin = false;

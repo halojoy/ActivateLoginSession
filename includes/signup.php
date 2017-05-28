@@ -54,15 +54,15 @@ if (isset($_POST['username'])) {
 			$userid = $db->insertUser($username, $userhash, $useremail, $usertype, $usercode);
 			// send mail
 			if (SENDMAIL) {
-				$host = 'http://'.$_SERVER['SERVER_NAME'].$_SERVER['PHP_SELF'];
-				$subject  = 'Activation of account at '.$_SERVER['SERVER_NAME'];
-				$body = 'Activation of your account at '.$_SERVER['SERVER_NAME'].'.<br />'.
-						'To activate your account<br />'.
-						'Please click the link here below!<br /><br />'.
-						'<a href="'.$host.'?act=activation&ucode='.$usercode.'">Activate your account</a>';
 				require ('includes/gmailsend.php');
+				if(!isset($message))
+					$message = '			Email sent successfully.<br />
+			Thank you for registering!<br />
+			Check your mailbox to activate your account!<br />
+			If you do not see the activation mail<br />
+			Please look in your junk mail!<br />';
 			} else {
-				$message = '			Thank you!<br />
+					$message = '			Thank you!<br />
 			You are now registered as member.<br />
 			You can go to index page and login.<br />
 			Your User Name is: <b>'.$username.'</b><br />';
