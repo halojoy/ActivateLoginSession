@@ -24,5 +24,6 @@ else {
 		$loginmenu .= '&nbsp;&nbsp;&nbsp;<a href="?act=admin">AdminUsers</a>';
 }
 
+// CONFIG
 $theme = 'default';
-define('SENDMAIL', true); // true or 'false' if no email activation
+define('SENDMAIL', false); // true or 'false' if no email activation
