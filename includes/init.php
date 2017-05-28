@@ -25,3 +25,4 @@ else {
 }
 
 $theme = 'default';
+define('SENDMAIL', true); // true or 'false' if no email activation
