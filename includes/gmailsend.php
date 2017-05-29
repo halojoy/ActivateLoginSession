@@ -17,11 +17,9 @@ require ('class.KMMailer.php');
 $mail = new KMMailer("smtp.gmail.com", "587", $gmailaccount, $gmailpassword, "tls");
 if (!$mail->isLogin) {
 	$message = '			SMTP Mail server login failed.<br />';
-	$db->exec("DELETE FROM users WHERE id = ".$userid);
 } else {
 	/* $mail->send(from, to, subject, body, headers = optional) */
 	if (!$mail->send($from, $mailto, $subject, $body)){
 		$message = '			Failed to send email.<br />';
-		$db->exec("DELETE FROM users WHERE id = ".$userid);
 	}
 }

@@ -41,29 +41,30 @@ if (isset($_POST['username'])) {
 		if ($db->emailCheck($useremail)) {
 			$message = '			Email already in use.<br />';
 		} else {
-			// insert user
+
+			// send mail, insert user
 			if (SENDMAIL) {
-				$usercode = sha1($username . time());
 				$usertype = 'activate';
-			} else {
-				$usercode = '';
-				$usertype = 'member';
-			}
-			$userid = $db->insertUser($username, $userhash, $useremail, $usertype, $usercode);
-			// send mail
-			if (SENDMAIL) {
+				$usercode = sha1($username . time());
 				require ('includes/gmailsend.php');
-				if(!isset($message))
+				if(!isset($message)) {
 					$message = '			Email sent successfully.<br />
 			Thank you for registering!<br />
 			Check your mailbox to activate your account!<br />
 			If you do not see the activation mail<br />
-			Please look in your junk mail!<br />';
+			Please look in your junk mail!<br />
+			Your User Name is: <b>'.$username.'</b><br />';
+					$db->insertUser($username, $userhash, $useremail, $usertype, $usercode);
+				}
 			} else {
-					$message = '			Thank you!<br />
+				// insert user
+				$usertype = 'member';
+				$usercode = '';
+				$message = '			Thank you!<br />
 			You are now registered as member.<br />
 			You can go to index page and login.<br />
 			Your User Name is: <b>'.$username.'</b><br />';
+				$db->insertUser($username, $userhash, $useremail, $usertype, $usercode);
 			}
 		}
 	}
