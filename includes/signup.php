@@ -6,6 +6,7 @@ if (isset($_POST['username'])) {
 	$username  = str_replace(array('  ','__','--'), array(' ','_','-'), $username);
 	$userpass1 = trim($userpass1);
 	$userpass2 = trim($userpass2);
+	$userhash  = sha1($userpass1);
 	$useremail = strtolower(trim($useremail));
 	
 	// validate input
@@ -34,16 +35,13 @@ if (isset($_POST['username'])) {
 	}
 
 	// check username and email in database
-	$user = $db->nameCheck($username);
-	if ($user) {
+	if ($db->nameCheck($username)) {
 		$message = '			User Name already in use.<br />';
 	} else {
-		$mail = $db->emailCheck($useremail);
-		if ($mail) {
+		if ($db->emailCheck($useremail)) {
 			$message = '			Email already in use.<br />';
 		} else {
 			// insert user
-			$userhash = sha1($userpass1);
 			if (SENDMAIL) {
 				$usercode = sha1($username . time());
 				$usertype = 'activate';
