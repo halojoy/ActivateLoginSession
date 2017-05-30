@@ -33,15 +33,15 @@
 			<img src="images/rockymountain.jpg" title="Rocky Mountain" alt="Rocky Mountain" border="1">
 			<p>You can only read this page<br />
 			if you are logged in.</p>
-			<p>This is a part of '<b>ActivateLogin</b>' which is a software<br />
+			<p>This is a part of '<b>ActivateLoginSession</b>' which is a software<br />
 			designed by 'halojoy.'<br />
 			You can use it for free and get the source code at:
 			<a href="https://github.com/halojoy/ActivateLogin" target="_blank">Github.com</a></p>
 		</div>
 		
 		<div id="footer">
-			<a href="https://github.com/halojoy/ActivateLogin" 
-			target="_blank">ActivateLogin</a>&nbsp;-&nbsp;halojoy &copy; 2017
+			<a href="https://github.com/halojoy/ActivateLoginSession" 
+			target="_blank">ActivateLoginSession</a>&nbsp;-&nbsp;halojoy &copy; 2017
 		</div>
 	</body>
 </html>
